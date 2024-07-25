@@ -7,7 +7,7 @@ namespace Netmain
         public static int PluginMain(IntPtr arg, int argLength)
         {
             Loadstdlibs();
-            if (Directory.Exists("./plugins/plugins_dotnet"))
+            if (!Directory.Exists("./plugins/plugins_dotnet"))
             {
                 Directory.CreateDirectory("./plugins/plugins_dotnet");
             }
