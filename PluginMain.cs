@@ -9,7 +9,8 @@ namespace Netmain
     {
         public static int PluginMain(IntPtr arg, int argLength)
         {
-           
+            int length = 0;
+            List<IntPtr> nints = new List<IntPtr>();
             Loadstdlibs();
             if (!Directory.Exists("./plugins/plugins_dotnet"))
             {
@@ -22,11 +23,30 @@ namespace Netmain
                 {
                     try
                     {
+                        
                         Assembly assembly = Assembly.LoadFrom(s);
                         Type? types = assembly.GetType("Plugin.Plugin");
                         object? obj = Activator.CreateInstance(types);
-                        MethodInfo? info = types.GetMethod("Plugin_Main");
-                        object? invoke = info?.Invoke(obj, null);
+                        MethodInfo? loadInfo = types.GetMethod("onLoad");
+                        MethodInfo? enableInfo = types.GetMethod("onEnable");
+                        MethodInfo? disableInfo = types.GetMethod("onDisable");
+                        FieldInfo? nameInfo = types.GetField("Name");
+                        FieldInfo? versionInfo = types.GetField("version");
+                        FieldInfo? websiteInfo = types.GetField("website");
+                        FieldInfo? describeInfo = types.GetField("describe");
+                        FieldInfo? authorInfo = types.GetField("author");
+                        nints.Add(Register.Build(
+                            (() => { loadInfo.Invoke(obj,new object?[]{}); }),
+                             (() => { enableInfo.Invoke(obj, new object?[] { });}),
+                                        (() => { disableInfo.Invoke(obj,new object?[]{}); }),
+                            (string)describeInfo.GetValue(obj),
+                            (string)versionInfo.GetValue(obj),
+                            (string)nameInfo.GetValue(obj),
+                            (string)websiteInfo.GetValue(obj),
+                            "none",
+                            (string)websiteInfo.GetValue(obj)
+                            ));
+                        length++;
                     }
                     catch (Exception e)
                     {
@@ -40,12 +60,29 @@ namespace Netmain
             }
             unsafe
             {
-                Int64* ptr = (Int64*)(arg.ToPointer());
-                *ptr = Register.Build(onLoad,onEnable,onDisable,"d","e","f","g","h","1").ToInt64();
-            }
-            return 0;
-        }
+                if (length <= 0)
+                {
+                    var hh = (Int64*)(arg.ToPointer());
+                    *hh = 0;
+                    return 0;
+                }
 
+                void* ptrVoid = NewArray();
+                foreach (IntPtr nint in nints)
+                {
+                    AddIntoArray(ptrVoid,nint.ToPointer());
+                }
+
+                var ptr = (long*)arg;
+                *ptr = (long)ptrVoid;
+                // GC.Collect();
+            }
+            return length;
+        }
+        [DllImport("EndStoneDotNetLoader.dll")]
+        public static unsafe  extern void* NewArray();
+        [DllImport("EndStoneDotNetLoader.dll")]
+        public static unsafe extern void AddIntoArray(void* arrayVoid,void* ptrVoid);
         public static void onLoad()
         {
             

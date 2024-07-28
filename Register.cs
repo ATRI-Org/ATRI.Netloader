@@ -15,12 +15,11 @@ namespace netloader
         byte[] describe,byte[] version,byte[] pluginname,byte[] website ,byte[] emil,byte[] author,Invoke_ loadInvoke,Invoke_ enabInvoke,Invoke_ disableInvoke);
         public static IntPtr Build(Invoke_ loadInvoke, Invoke_ enabInvoke, Invoke_ disableInvoke, string describe,string version, string name,string website,string emil,string author)
         {
-           return RegisterPluginVoid(GetBytes(describe),GetBytes(version),GetBytes(name),GetBytes(website),GetBytes(emil),GetBytes(author),loadInvoke,enabInvoke,disableInvoke);
+           return RegisterPluginVoid(describe.GetBytes(),GetBytes(version),GetBytes(name),GetBytes(website),GetBytes(emil),GetBytes(author),loadInvoke,enabInvoke,disableInvoke);
         }
         public static byte[] GetBytes(this string in_string)
         {
             return Encoding.UTF8.GetBytes(in_string);
         }
-        
     }
 }
