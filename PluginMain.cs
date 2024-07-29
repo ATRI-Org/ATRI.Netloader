@@ -1,4 +1,5 @@
-﻿using netloader;
+﻿#pragma warning disable
+using netloader;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -26,25 +27,25 @@ namespace Netmain
                         
                         Assembly assembly = Assembly.LoadFrom(s);
                         Type? types = assembly.GetType("Plugin.Plugin");
-                        object? obj = Activator.CreateInstance(types);
+                        //object? obj = Activator.CreateInstance(types);
                         MethodInfo? loadInfo = types.GetMethod("onLoad");
                         MethodInfo? enableInfo = types.GetMethod("onEnable");
                         MethodInfo? disableInfo = types.GetMethod("onDisable");
-                        FieldInfo? nameInfo = types.GetField("Name");
-                        FieldInfo? versionInfo = types.GetField("version");
-                        FieldInfo? websiteInfo = types.GetField("website");
-                        FieldInfo? describeInfo = types.GetField("describe");
-                        FieldInfo? authorInfo = types.GetField("author");
+                        var nameInfo = types.GetProperty("Name");
+                        var versionInfo = types.GetProperty("version");
+                        var websiteInfo = types.GetProperty("website");
+                        var describeInfo = types.GetProperty("describe");
+                        var authorInfo = types.GetProperty("author");
                         nints.Add(Register.Build(
-                            (() => { loadInfo.Invoke(obj,new object?[]{}); }),
-                             (() => { enableInfo.Invoke(obj, new object?[] { });}),
-                                        (() => { disableInfo.Invoke(obj,new object?[]{}); }),
-                            (string)describeInfo.GetValue(obj),
-                            (string)versionInfo.GetValue(obj),
-                            (string)nameInfo.GetValue(obj),
-                            (string)websiteInfo.GetValue(obj),
+                            (() => { loadInfo.Invoke(null,new object?[]{}); }),
+                             (() => { enableInfo.Invoke(null, new object?[] { });}),
+                                        (() => { disableInfo.Invoke(null,new object?[]{}); }),
+                            (string)describeInfo.GetValue(null),
+                            (string)versionInfo.GetValue(null),
+                            (string)nameInfo.GetValue(null),
+                            (string)websiteInfo.GetValue(null),
                             "none",
-                            (string)websiteInfo.GetValue(obj)
+                            (string)websiteInfo.GetValue(null)
                             ));
                         length++;
                     }
@@ -72,7 +73,6 @@ namespace Netmain
                 {
                     AddIntoArray(ptrVoid,nint.ToPointer());
                 }
-
                 var ptr = (long*)arg;
                 *ptr = (long)ptrVoid;
                 // GC.Collect();
