@@ -83,26 +83,7 @@ namespace Netmain
         public static unsafe  extern void* NewArray();
         [DllImport("EndStoneDotNetLoader.dll")]
         public static unsafe extern void AddIntoArray(void* arrayVoid,void* ptrVoid);
-        public static void onLoad()
-        {
-            
-        }
-
-        public static void onEnable()
-        {
-           
-        }
-        
-        public static void onDisable()
-        {
-
-        }
-      
-        [UnmanagedCallersOnly(EntryPoint = "init_endstone_plugin")]
-        public static unsafe void* PluginVoid()
-        {
-            return Register.Build(onLoad, onEnable, onDisable, "d", "e", "f", "g", "h", "1").ToPointer();
-        }
+       
         private static void Loadstdlibs()
         {
             string[] libStrings = Directory.GetFiles("./plugins/plugins_dotnet/std_lib/", "*.dll");
