@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netloader
+namespace System
 {
-    public class RegisterPlugin : Attribute
+    public class RegisterAttribute_ : Attribute
     {
 
     }

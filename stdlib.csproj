@@ -16,4 +16,21 @@
   <PropertyGroup>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Loader\**" />
+    <Compile Remove="src\Loader\**" />
+    <Compile Remove="UnitTest\**" />
+    <EmbeddedResource Remove="Loader\**" />
+    <EmbeddedResource Remove="src\Loader\**" />
+    <EmbeddedResource Remove="UnitTest\**" />
+    <None Remove="Loader\**" />
+    <None Remove="src\Loader\**" />
+    <None Remove="UnitTest\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CppSharp.Runtime" Version="1.1.5.3168" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\endstone\command\" />
+  </ItemGroup>
 </Project>
