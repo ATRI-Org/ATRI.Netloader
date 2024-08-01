@@ -1,8 +1,11 @@
-﻿namespace Plugin
+﻿using stdlib.src.endstone;
+
+namespace Plugin
 {
     [RegisterAttribute_]
-    public static class Plugin
+    public static class Plugin 
     {
+        public static plugin plugin { get; set; }
         public static string Name { get; } = "dotnet_plugin_example";
 
         public static string version { get; } = "0.0.1";
@@ -11,11 +14,15 @@
 
         public static string describe { get; } = "This is a example";
 
-        public static string author { get; } = "Youm1iHa";
+        public static string author { get; } = "YoumiHa";
 
         public static void onLoad()
         {
-            Console.WriteLine("Loaded");
+            while (true)
+            {
+                Thread.Sleep(1);
+                plugin.getLogger().Info(plugin.getName());
+            }
         }
 
         public static void onEnable()

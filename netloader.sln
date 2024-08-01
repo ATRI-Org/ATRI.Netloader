@@ -5,15 +5,18 @@ VisualStudioVersion = 17.11.35118.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stdlib", "stdlib.csproj", "{40C43CB9-DFBE-4675-B6BC-B231374283D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCsharp", "UnitTest\UnitTestCsharp.csproj", "{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestCsharp", "UnitTest\UnitTestCsharp.csproj", "{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loader", "Loader\Loader.csproj", "{DA297FE5-6AE2-4905-A789-832FE5D224E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loader", "Loader\Loader.csproj", "{DA297FE5-6AE2-4905-A789-832FE5D224E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		mods|Any CPU = mods|Any CPU
+		mods|x64 = mods|x64
+		mods|x86 = mods|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
@@ -25,6 +28,12 @@ Global
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Debug|x64.Build.0 = Debug|Any CPU
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Debug|x86.Build.0 = Debug|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|Any CPU.ActiveCfg = mods|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|Any CPU.Build.0 = mods|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|x64.ActiveCfg = mods|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|x64.Build.0 = mods|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|x86.ActiveCfg = mods|Any CPU
+		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.mods|x86.Build.0 = mods|Any CPU
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40C43CB9-DFBE-4675-B6BC-B231374283D1}.Release|x64.ActiveCfg = Release|Any CPU
@@ -37,6 +46,12 @@ Global
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Debug|x64.Build.0 = Debug|Any CPU
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Debug|x86.Build.0 = Debug|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|Any CPU.ActiveCfg = mods|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|Any CPU.Build.0 = mods|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|x64.ActiveCfg = mods|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|x64.Build.0 = mods|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|x86.ActiveCfg = mods|Any CPU
+		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.mods|x86.Build.0 = mods|Any CPU
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D0932D7-A879-4893-9FAF-B37F31B3E9AD}.Release|x64.ActiveCfg = Release|Any CPU
@@ -49,6 +64,12 @@ Global
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Debug|x64.Build.0 = Debug|Any CPU
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Debug|x86.Build.0 = Debug|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|Any CPU.ActiveCfg = mods|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|Any CPU.Build.0 = mods|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|x64.ActiveCfg = mods|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|x64.Build.0 = mods|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|x86.ActiveCfg = mods|Any CPU
+		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.mods|x86.Build.0 = mods|Any CPU
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA297FE5-6AE2-4905-A789-832FE5D224E8}.Release|x64.ActiveCfg = Release|Any CPU

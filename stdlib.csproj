@@ -6,8 +6,12 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PublishAot>true</PublishAot>
     <SignAssembly>False</SignAssembly>
+    <Configurations>Debug;Release;mods</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <IsAotCompatible>True</IsAotCompatible>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='mods|AnyCPU'">
     <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -17,20 +21,23 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Convert\**" />
     <Compile Remove="Loader\**" />
     <Compile Remove="src\Loader\**" />
     <Compile Remove="UnitTest\**" />
+    <Compile Remove="x64\**" />
+    <EmbeddedResource Remove="Convert\**" />
     <EmbeddedResource Remove="Loader\**" />
     <EmbeddedResource Remove="src\Loader\**" />
     <EmbeddedResource Remove="UnitTest\**" />
+    <EmbeddedResource Remove="x64\**" />
+    <None Remove="Convert\**" />
     <None Remove="Loader\**" />
     <None Remove="src\Loader\**" />
     <None Remove="UnitTest\**" />
+    <None Remove="x64\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CppSharp.Runtime" Version="1.1.5.3168" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\endstone\command\" />
+    <PackageReference Include="Conari" Version="1.5.0" />
   </ItemGroup>
 </Project>

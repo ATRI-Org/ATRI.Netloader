@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netloader.commandSender
+namespace stdlib.src.endstone.commandSender
 {
     /// <summary>
     /// todo : add server ptr
     /// </summary>
-    public class CommandSender : Permissible
+    public class CommandSender : Permissible,IDisposable
     {
         [DllImport("a")]
         private unsafe static extern void* asPlayer(void* ptr);
@@ -32,7 +32,10 @@ namespace netloader.commandSender
         [DllImport("a")]
         private unsafe static extern void sendMessage(void* ptr, byte[] message);
 
-
+        public void Dispose()
+        {
+            Marshal.FreeHGlobal(_ptr);
+        }
     }
 
 }

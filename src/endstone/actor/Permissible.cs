@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netloader
+namespace stdlib.src.endstone
 {
      public abstract class Permissible
     {

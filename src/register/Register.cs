@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Intrinsics;
 namespace netloader
 {
     public static class Register
@@ -20,6 +20,10 @@ namespace netloader
         public static byte[] GetBytes(this string in_string)
         {
             return Encoding.UTF8.GetBytes(in_string);
+        }
+        public static string GetStr(this IntPtr ptr)
+        {
+            return Marshal.PtrToStringUTF8(ptr);
         }
     }
 }

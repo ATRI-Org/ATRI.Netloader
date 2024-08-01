@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "stddebug": {
+      "commandName": "Executable",
+      "executablePath": "F:\\EndStoneMC\\start.exe",
+      "workingDirectory": "F:\\EndStoneMC",
+      "nativeDebugging": true
+    }
+  }
+}

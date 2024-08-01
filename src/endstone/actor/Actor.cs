@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netloader.actor
+namespace stdlib.src.endstone.actor
 {
     public class Actor : commandSender.CommandSender
     {

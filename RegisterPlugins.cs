@@ -7,12 +7,17 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using netloader;
+using stdlib.src.endstone;
+using net.r_eg.Conari;
+using net.r_eg.Conari.Core;
 namespace stdlib
 {
     public static class RegisterPlugins
     {
+        
         public static List<IntPtr> Run()
         {
+         
             List<IntPtr> plugins = new List<IntPtr>();
             foreach (string file in Directory.GetFiles(".\\mods","*.dll"))
             {
@@ -29,7 +34,6 @@ namespace stdlib
             }
             return plugins;
         }
-
         private static IntPtr LoadByRegister(Assembly loadAssembly)
         {
             try
@@ -50,13 +54,14 @@ namespace stdlib
                     var websiteInfo = clazz.GetProperty("website");
                     var describeInfo = clazz.GetProperty("describe");
                     var authorInfo = clazz.GetProperty("author");
+                    var pluginInfo = clazz.GetProperty("plugin");
                     if (onloadInfo != null && onenableInfo != null && ondisableInfo != null)
                     {
                         bool isStaticClass = IsStaticClass(clazz);
                         object? instance;
                         if (!isStaticClass)
-                        {
-                            instance = Activator.CreateInstance(clazz);
+                        { instance = Activator.CreateInstance(clazz);
+                           
                            ptr =   Register.Build(
                                 (() => { onloadInfo.Invoke(clazz, new object?[] { }); }),
                                 (() => { onenableInfo.Invoke(clazz, new object?[] { }); }),
@@ -68,6 +73,7 @@ namespace stdlib
                                 "none",
                                 (string)websiteInfo.GetValue(clazz)
                             );
+                            pluginInfo.SetValue(instance,new plugin(ptr));
                         }
                         else
                         {
@@ -83,6 +89,7 @@ namespace stdlib
                                 "none",
                                 (string)websiteInfo.GetValue(null)
                             );
+                            pluginInfo.SetValue(instance, new plugin(ptr));
                         }
                     }
                     else
